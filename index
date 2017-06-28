@@ -1,0 +1,20 @@
+<?php
+$url = "https://www.goeuro.com/";
+function gettitle($url)
+{
+    $doc = new DOMDocument();
+    if($doc->loadHTMLFile($url)) {
+        $list = $doc->getElementsByTagName("description");
+        if ($list->length > 0) {
+            return $list->item(0)->textContent;
+        }
+    }
+}
+gettitle($url);
+
+
+
+
+
+
+?>
