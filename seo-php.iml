@@ -15,5 +15,16 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file:///usr/local/bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/bin" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
