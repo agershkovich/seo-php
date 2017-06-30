@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="My\TitlePageTest" file="/home/agershkovich/IdeaProjects/seo-php/selenium-tests/tests/TitlePageTest.php" tests="1" assertions="1" failures="1" errors="0" time="3.301601">
+    <testcase name="testShouldContainSearchInput" class="My\TitlePageTest" file="/home/agershkovich/IdeaProjects/seo-php/selenium-tests/tests/TitlePageTest.php" line="15" assertions="1" time="3.301601">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">My\TitlePageTest::testShouldContainSearchInput
+Failed asserting that 'YouTube' contains "youtube - Поиск в Google".
+
+/home/agershkovich/IdeaProjects/seo-php/selenium-tests/tests/TitlePageTest.php:21
+</failure>
+      <system-out>[2017-06-29 14:12:46]: Starting execution of test My\TitlePageTest::testShouldContainSearchInput
+[2017-06-29 14:12:46]: [WebDriver] Executing command "setWindowSize" with params {"width":1280,"height":1024,":windowHandle":"current"}
+[2017-06-29 14:12:46]: [WebDriver] Loading URL "http://www.youtube.com/"
+[2017-06-29 14:12:46]: [WebDriver] Executing command "get" with params {"url":"http://www.youtube.com/"}
+[2017-06-29 14:12:48]: [WebDriver] Executing command "getTitle" with params []
+[2017-06-29 14:12:49]: Finished execution of test My\TitlePageTest::testShouldContainSearchInput
+[2017-06-29 14:12:49]: [WebDriver] Executing command "getCurrentUrl" with params []
+[2017-06-29 14:12:49]: [WebDriver] Executing command "screenshot" with params []
+[2017-06-29 14:12:50]: [WebDriver] Executing command "getPageSource" with params []
+[2017-06-29 14:12:50]: 
+[2017-06-29 14:12:50]: [WARN] Test failed on page "https://www.youtube.com/", taking page snapshots:
+[2017-06-29 14:12:50]: Screenshot: "/home/agershkovich/IdeaProjects/seo-php/selenium-tests/logs/My-TitlePageTest-testShouldContainSearchInput-2017-06-29-14-12-49.png"
+[2017-06-29 14:12:50]: HTML snapshot: "/home/agershkovich/IdeaProjects/seo-php/selenium-tests/logs/My-TitlePageTest-testShouldContainSearchInput-2017-06-29-14-12-49.html"
+[2017-06-29 14:12:50]: 
+[2017-06-29 14:12:50]: Destroying "firefox" WebDriver for "My\TitlePageTest::testShouldContainSearchInput" (session fdc59f11-4ea7-4fbb-8aea-9b8898899a1c)
+[2017-06-29 14:12:50]: [WebDriver] Executing command "close" with params []
+[2017-06-29 14:12:50]: [WebDriver] Executing command "quit" with params []
+</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
