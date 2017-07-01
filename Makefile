@@ -12,7 +12,7 @@ VNCTESTPORT?=5900
 ISOLATEDNETWORK?=app-selenium-nw
 
 
-all:docker-build-seo-php-app docker-run-seo-php-app runtest results delete
+all:docker-build-seo-php-app docker-run-seo-php-app runtests results delete
 
 delete:docker-stop docker-remove
 
@@ -33,7 +33,7 @@ docker-remove:
 	docker rm $(TESTCONTAINERNAME)
 	docker network rm $(ISOLATEDNETWORK)
 
-runtest:
+runtests:
 	sleep 1
 	$(LOCALPATH)$(STEWARD) run staging $(TESTBROWSER) -vvv
 
