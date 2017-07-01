@@ -12,7 +12,7 @@ VNCTESTPORT?=5900
 ISOLATEDNETWORK?=app-selenium-nw
 
 
-all:docker-build-seo-php-app docker-run-seo-php-app runtests results delete
+all:docker-build-seo-php-app docker-run-seo-php-app runtests results #delete
 
 delete:docker-stop docker-remove
 

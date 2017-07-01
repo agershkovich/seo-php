@@ -1,5 +1,4 @@
 <?php
-// selenium-tests/tests/TitlePageTest.php
 
 namespace My; // Note the "My" namespace maps to the "tests" folder, as defined in the autoload part of `composer.json`.
 

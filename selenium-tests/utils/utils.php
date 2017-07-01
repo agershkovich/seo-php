@@ -1,5 +1,5 @@
 <?php
-$url="https://www.youtube.com/";
+
 function file_get_contents_curl($url)
 {
     $ch = curl_init();
@@ -15,7 +15,7 @@ function file_get_contents_curl($url)
     return $data;
 }
 
-$html = file_get_contents_curl($url);
+$html = file_get_contents_curl("http://www.wikipedia.com/");
 
 //parsing begins here:
 $doc = new DOMDocument();
@@ -36,9 +36,6 @@ for ($i = 0; $i < $metas->length; $i++)
         $keywords = $meta->getAttribute('content');
 }
 
-echo "Title: $title". '<br/><br/>';
+echo "Title: $title";
 echo "Description: $description". '<br/><br/>';
 echo "Keywords: $keywords";
-
-print_r($meta);
-
