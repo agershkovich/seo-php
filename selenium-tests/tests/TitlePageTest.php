@@ -3,11 +3,11 @@
 
 namespace My; // Note the "My" namespace maps to the "tests" folder, as defined in the autoload part of `composer.json`.
 
-use Lmc\Steward\Test\AbstractTestCase;
+use \Lmc\Steward\Test\AbstractTestCase;
 
 class TitlePageTest extends AbstractTestCase
 {
-    public function testShouldContainSearchInput()
+    public function testShouldContainTitle()
     {
         // Load the URL (will wait until page is loaded)
         $this->wd->get('http://app/'); // $this->wd holds instance of \RemoteWebDriver

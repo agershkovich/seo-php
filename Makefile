@@ -12,7 +12,7 @@ VNCTESTPORT?=5900
 ISOLATEDNETWORK?=app-selenium-nw
 
 
-all:docker-build-seo-php-app docker-run-seo-php-app
+all:docker-build-seo-php-app docker-run-seo-php-app runtest results delete
 
 delete:docker-stop docker-remove
 
@@ -21,8 +21,8 @@ docker-build-seo-php-app:
 
 docker-run-seo-php-app:
 	docker network create --driver bridge $(ISOLATEDNETWORK)
-	docker run -d -p $(APPPORT):80 --network=$(ISOLATEDNETWORK) -v $(LOCALPATH)$(WEBPATH):/var/www/site --name $(APPCONTAINERNAME) $(APPIMAGENAME)
-	docker run -d -p $(TESTPORT):4444 -p $(VNCTESTPORT):5900 --network=$(ISOLATEDNETWORK) --shm-size 2g --name $(TESTCONTAINERNAME) $(TESTIMAGENAME)
+	docker run -d --health-cmd='curl -f http://localhost/ || exit 1' --health-interval=1s --health-retries=5 -p $(APPPORT):80 --network=$(ISOLATEDNETWORK) -v $(LOCALPATH)$(WEBPATH):/var/www/site --name $(APPCONTAINERNAME) $(APPIMAGENAME)
+	docker run -d --health-cmd='curl -f http://localhost:4444/ || exit 1' --health-interval=1s --health-retries=5 -p $(TESTPORT):4444 -p $(VNCTESTPORT):5900 --network=$(ISOLATEDNETWORK) --shm-size 2g --name $(TESTCONTAINERNAME) $(TESTIMAGENAME)
 
 docker-stop:
 	docker stop $(APPCONTAINERNAME)
@@ -34,6 +34,7 @@ docker-remove:
 	docker network rm $(ISOLATEDNETWORK)
 
 runtest:
+	sleep 1
 	$(LOCALPATH)$(STEWARD) run staging $(TESTBROWSER) -vvv
 
 results:

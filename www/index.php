@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<?php require 'header.php' ?>
 <html>
 <head>
+    <?php require 'header.php' ?>
   <title><?php echo $pageTitle ?></title>
   <meta name="description" content="<?php echo $pageDescription ?>">
 </head>

@@ -230,7 +230,7 @@
       <!-- ignore the stylesheet from being processed -->
     </xsl:template>
   </xsl:stylesheet>
-  <testcase name="My\TitlePageTest" status="done" start="2017-07-01T12:26:28+0200" end="2017-07-01T12:26:30+0200" result="passed">
-    <test name="testShouldContainSearchInput" status="done" start="2017-07-01T12:26:30+0200" end="2017-07-01T12:26:30+0200" result="passed"/>
+  <testcase name="My\TitlePageTest" status="done" start="2017-07-01T14:59:33+0200" end="2017-07-01T14:59:36+0200" result="passed">
+    <test name="testShouldContainTitle" status="done" start="2017-07-01T14:59:35+0200" end="2017-07-01T14:59:36+0200" result="passed"/>
   </testcase>
 </testcases>
