@@ -20,7 +20,7 @@ docker-build-seo-php-app:
 	docker build -t $(APPIMAGENAME) -f app.Dockerfile .
 
 docker-run-seo-php-app:
-	docker network create --driver bridge $(ISOLATEDNETWORK)
+	#docker network create --driver bridge $(ISOLATEDNETWORK)
 	docker run -d --health-cmd='curl -f http://localhost/ || exit 1' --health-interval=1s --health-retries=5 -p $(APPPORT):80 --network=$(ISOLATEDNETWORK) -v $(LOCALPATH)$(WEBPATH):/var/www/site --name $(APPCONTAINERNAME) $(APPIMAGENAME)
 	docker run -d --health-cmd='curl -f http://localhost:4444/ || exit 1' --health-interval=1s --health-retries=5 -p $(TESTPORT):4444 -p $(VNCTESTPORT):5900 --network=$(ISOLATEDNETWORK) --shm-size 2g --name $(TESTCONTAINERNAME) $(TESTIMAGENAME)
 
@@ -31,7 +31,7 @@ docker-stop:
 docker-remove:
 	docker rm $(APPCONTAINERNAME)
 	docker rm $(TESTCONTAINERNAME)
-	docker network rm $(ISOLATEDNETWORK)
+	#docker network rm $(ISOLATEDNETWORK)
 
 runtests:
 	sleep 1
