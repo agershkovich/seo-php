@@ -4,17 +4,22 @@ namespace My;
 
 use Lmc\Steward\Test\AbstractTestCase;
 
+include_once dirname(__DIR__) . '/utils/utils.php';
 
 class DescriptionPageTest extends AbstractTestCase
 
 {
     public function testShouldContainDescription()
     {
-        // Load the URL (will wait until page is loaded)
-        $this->wd->get('http://app/'); // $this->wd holds instance of \RemoteWebDriver
+        $url = 'http://localhost/';
+        $value = 'description';
+
+        $this->wd->get($url);
+
+        $this->assertContains(expectedValueOf($value), actualValueOf($url, $value));
+
+        $this->log('Current page "%s" has meta tag "%s" "%s"', $this->wd->getCurrentURL(), $value, actualValueOf($url, $value));
     }
-
-
 
 
 }

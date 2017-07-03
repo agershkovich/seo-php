@@ -1,41 +1,55 @@
 <?php
 
-function file_get_contents_curl($url)
-{
-    $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 
-    $data = curl_exec($ch);
-    curl_close($ch);
+ function expectedValueOf($value) {
 
-    return $data;
+    $handle = fopen(dirname(__DIR__) . "/resources/url_title_description.csv", "r");
+    $data = fgetcsv($handle, 1000, ",");
+
+    switch ($value) {
+        case "url":
+
+            $result = $data[0];
+            break;
+
+        case "title":
+
+            $result = $data[1];
+            break;
+
+        case "description":
+
+            $result = $data[2];
+            break;
+    }
+    return $result;
 }
 
-$html = file_get_contents_curl("http://www.wikipedia.com/");
 
-//parsing begins here:
-$doc = new DOMDocument();
-@$doc->loadHTML($html);
-$nodes = $doc->getElementsByTagName('title');
-
-//get and display what you need:
-$title = $nodes->item(0)->nodeValue;
-
-$metas = $doc->getElementsByTagName('meta');
-
-for ($i = 0; $i < $metas->length; $i++)
+function actualValueOf($url, $value)
 {
-    $meta = $metas->item($i);
-    if($meta->getAttribute('name') == 'description')
-        $description = $meta->getAttribute('content');
-    if($meta->getAttribute('name') == 'keywords')
-        $keywords = $meta->getAttribute('content');
+    $tags = get_meta_tags($url);
+
+    switch ($value) {
+
+        case "url":
+
+            $result = $tags['url'];
+            break;
+
+        case "title":
+
+            $result = $tags['title'];
+            break;
+
+
+        case "description":
+
+            $result = $tags['description'];
+            break;
+
+    }
+    return $result;
 }
 
-echo "Title: $title";
-echo "Description: $description". '<br/><br/>';
-echo "Keywords: $keywords";

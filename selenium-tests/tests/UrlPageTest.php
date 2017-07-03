@@ -2,17 +2,23 @@
 
 namespace My;
 
-use \Lmc\Steward\Test\AbstractTestCase;
+use Lmc\Steward\Test\AbstractTestCase;
+
+include_once dirname(__DIR__) . '/utils/utils.php';
 
 class UrlPageTest extends AbstractTestCase
-{
-    public function testUrl()
-    {
-        // Load the URL (will wait until page is loaded)
-        $this->wd->get('http://app/'); // $this->wd holds instance of \RemoteWebDriver
 
-        // Do some assertion
-        $this->assertContains('app', $this->wd->getCurrentURL());
+{
+    public function testShouldContainMetaURL()
+    {
+        $url = 'http://localhost/';
+        $value = 'url';
+
+        $this->wd->get($url);
+
+        $this->assertContains(expectedValueOf($value), actualValueOf($url, $value));
+
+        $this->log('Current page "%s" has meta tag "%s" "%s"', $this->wd->getCurrentURL(), $value, actualValueOf($url, $value));
 
     }
 
