@@ -1,41 +1,23 @@
 Test project for use PHP, PHPUnit and Selenium
 
-Задание 1. Проверка SEO изменений на сайте.
-Нужно написать PHP скрипт, который решает описываемую задачу. Здесь важно
-показать рабочий код с понятным результатом.
+Description:
 
-Входные данные:
-CSV файл с описанием изменений мета-тегов для сайта. Формат файла:
-Url, Meta Title, Meta Description
-
-Требуется: Проверить, что изменения описанные в файле внесены на сайт верно.
-Важно!: изменений на живом сайте нет, чтобы их увидеть нужно делать запросы с
-cookie test=”seo”.
-
-Результат: По результату должно быть сразу понятно все ли изменения внесены
-верно или нет. Если не все - то сообщить об этом в таком виде, чтобы можно было
-быстро понять где и что работает не так. Результат должен быть понятен любому
-человеку, который к нему обратится.
-
-В качестве тестового примера можно взять любой живой сайт или использовать
-localhost.
-
+Project starts target site on dockerized Apache WebServer with PHP, after that install Steward than run tests by **make** against mentioned dummy one page dummy site.
 
 Prerequisites:
 
 - Ubuntu;
 - Firefox;
 - PHP;
-- PHPUnit;
 - composer;
 - docker;
 - make
 
-Setup:
+Attention:
+Dont forget to install **make** (e.g. sudo apt install make);
 
 Run:
-
-Start "make" from root of project.
+Run make from root of project.
 
  
 
