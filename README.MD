@@ -23,6 +23,8 @@ localhost.
 
 Prerequisites:
 
+- Ubuntu;
+- Firefox;
 - PHP;
 - PHPUnit;
 - composer;
