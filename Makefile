@@ -7,7 +7,14 @@ STEWARD?=/selenium-tests/vendor/bin/steward
 APPPORT?=80
 
 
-all:docker-build-seo-php-app docker-run-seo-php-app runtests results delete
+all:setup docker-build-seo-php-app docker-run-seo-php-app runtests results delete
+
+.ONESHELL:
+setup:
+	cd selenium-tests/;
+	composer require lmc/steward
+	./vendor/bin/steward install --no-interaction
+
 
 delete:docker-stop docker-remove
 

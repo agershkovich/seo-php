@@ -1,3 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 /selenium-tests/logs/
 /.idea/
+/selenium-tests/vendor/
