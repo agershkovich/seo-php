@@ -1,29 +1,24 @@
 <?php
-// selenium-tests/tests/TitlePageTest.php
 
-namespace My; // Note the "My" namespace maps to the "tests" folder, as defined in the autoload part of `composer.json`.
+namespace My;
 
-use \Lmc\Steward\Test\AbstractTestCase;
+use Lmc\Steward\Test\AbstractTestCase;
+
+include_once dirname(__DIR__) . '/utils/utils.php';
 
 class TitlePageTest extends AbstractTestCase
+
 {
-    public function testShouldContainTitle()
+    public function testShouldContainMetaTitle()
     {
-        // Load the URL (will wait until page is loaded)
-        $this->wd->get('http://app/'); // $this->wd holds instance of \RemoteWebDriver
+        $url = 'http://localhost/';
+        $value = 'title';
 
-        // Do some assertion
-        $this->assertContains('Original Title', $this->wd->getTitle());
+        $this->wd->get($url);
 
-        // You can use $this->log(), $this->warn() or $this->debug() with sprintf-like syntax
-        $this->log('Current page "%s" has title "%s"', $this->wd->getCurrentURL(), $this->wd->getTitle());
-//
-//        // Make sure search input is present
-//        $searchInput = $this->wd->findElement(WebDriverBy::cssSelector('#search-form input'));
-//        // Or you can use syntax sugar provided by Steward (this is equivalent of previous line)
-//        $searchInput = $this->findByCss('#search-form input');
-//
-//        // Assert title of the search input
-//        $this->assertEquals('Search', $searchInput->getAttribute('title'));
+        $this->assertContains(expectedValueOf($value), actualValueOf($url, $value));
+
+        $this->log('Current page "%s" has meta tag "%s" "%s"', $this->wd->getCurrentURL(), $value, actualValueOf($url, $value));
+
     }
 }
