@@ -14,10 +14,9 @@ setup:
 	cd selenium-tests/;
 	composer require lmc/steward
 	./vendor/bin/steward install --no-interaction
-	java -jar ./vendor/bin/selenium-server-standalone-3.4.0.jar &>/dev/null &
+	java -jar ./vendor/bin/selenium-server-standalone-3.4.0.jar &>/dev/null
 
-
-delete:docker-stop docker-remove
+delete:kill-selenium docker-stop docker-remove
 
 docker-build-seo-php-app:
 	docker build -t $(APPIMAGENAME) .
@@ -37,3 +36,6 @@ runtests:
 
 results:
 	$(LOCALPATH)$(STEWARD) results
+
+kill-selenium:
+	pkill -f selenium &>/dev/null
