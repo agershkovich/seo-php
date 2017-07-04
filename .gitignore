@@ -2,3 +2,4 @@
 /selenium-tests/logs/
 /.idea/
 /selenium-tests/vendor/
+/selenium-tests/composer.lock

@@ -14,6 +14,7 @@ setup:
 	cd selenium-tests/;
 	composer require lmc/steward
 	./vendor/bin/steward install --no-interaction
+	java -jar ./vendor/bin/selenium-server-standalone-3.4.0.jar &>/dev/null &
 
 
 delete:docker-stop docker-remove
