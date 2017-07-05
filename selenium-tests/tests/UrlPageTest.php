@@ -11,13 +11,10 @@ class UrlPageTest extends AbstractTestCase
 {
     public function testShouldContainMetaURL()
     {
-        $url = 'http://localhost/';
+        $url = 'http://' . computeDockerContainerDirectUrl("app.int");
         $value = 'url';
-
         $this->wd->get($url);
-
         $this->assertContains(expectedValueOf($value), actualValueOf($url, $value));
-
         $this->log('Current page "%s" has meta tag "%s" "%s"', $this->wd->getCurrentURL(), $value, actualValueOf($url, $value));
 
     }

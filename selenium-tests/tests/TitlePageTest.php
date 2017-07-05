@@ -11,13 +11,10 @@ class TitlePageTest extends AbstractTestCase
 {
     public function testShouldContainMetaTitle()
     {
-        $url = 'http://localhost/';
+        $url = 'http://' . computeDockerContainerDirectUrl("app.int");
         $value = 'title';
-
         $this->wd->get($url);
-
         $this->assertContains(expectedValueOf($value), actualValueOf($url, $value));
-
         $this->log('Current page "%s" has meta tag "%s" "%s"', $this->wd->getCurrentURL(), $value, actualValueOf($url, $value));
 
     }
